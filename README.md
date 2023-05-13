@@ -342,13 +342,13 @@ log(`Bitcoin price is ${price} USDT`);
 ### Ticks and candlesticks
 How to listen the real-time ticks of a symbol.
 ```javascript
-import { log, createMarketWatcher, } from "@reiryoku/mida";
+import { log, marketWatcher, } from "@reiryoku/mida";
 
-const marketWatcher = await createMarketWatcher({ tradingAccount: myAccount, });
+const watcher = await marketWatcher({ tradingAccount: myAccount, });
 
-await marketWatcher.watch("BTCUSDT", { watchTicks: true, });
+await watcher.watch("BTCUSDT", { watchTicks: true, });
 
-marketWatcher.on("tick", (event) => {
+watcher.on("tick", (event) => {
     const { tick, } = event.descriptor;
 
     log(`Bitcoin price is now ${tick.bid} USDT`);
@@ -359,13 +359,13 @@ How to listen the real-time candlesticks of a symbol (when the last live candles
 ```javascript
 import {
     log,
-    createMarketWatcher,
+    marketWatcher,
     MidaTimeframe,
 } from "@reiryoku/mida";
 
-const marketWatcher = await createMarketWatcher({ tradingAccount: myAccount, });
+const watcher = await marketWatcher({ tradingAccount: myAccount, });
 
-await marketWatcher.watch("BTCUSDT", {
+await watcher.watch("BTCUSDT", {
     watchPeriods: true,
     timeframes: [
         MidaTimeframe.M5,
@@ -373,7 +373,7 @@ await marketWatcher.watch("BTCUSDT", {
     ],
 });
 
-marketWatcher.on("period-update", (event) => {
+watcher.on("period-update", (event) => {
     const { period, } = event.descriptor;
 
     switch (period.timeframe) {
@@ -390,7 +390,7 @@ marketWatcher.on("period-update", (event) => {
     }
 });
 
-marketWatcher.on("period-close", (event) => {
+watcher.on("period-close", (event) => {
     const { period, } = event.descriptor;
 
     switch (period.timeframe) {
@@ -422,9 +422,9 @@ log("Last candlestick close price: " + lastPeriod.close);
 
 In Mida, the `on()` method returns an id which can be used later to unsubscribe from the event listener.
 ```javascript
-const id = marketWatcher.on("period-close", (event) => { /* ... */ });
+const id = watcher.on("period-close", (event) => { /* ... */ });
 
-marketWatcher.removeEventListener(id);
+watcher.removeEventListener(id);
 ```
 
 ### Market components

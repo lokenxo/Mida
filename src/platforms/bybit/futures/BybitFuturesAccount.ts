@@ -523,7 +523,7 @@ export class BybitFuturesAccount extends MidaTradingAccount {
 
     #onPeriodUpdate (descriptor: Record<string, any>): void {
         const symbol: string = descriptor.symbol;
-        const timeframe: MidaTimeframe = BybitFuturesUtilities.normalizeTimeframe(descriptor.interval);
+        const timeframe: MidaTimeframe = BybitFuturesUtilities.normalizeTimeframe(descriptor[0].interval);
 
         if (!(this.#periodListeners.get(symbol) ?? []).includes(timeframe)) {
             return;
@@ -531,16 +531,16 @@ export class BybitFuturesAccount extends MidaTradingAccount {
 
         const period: MidaPeriod = new MidaPeriod({
             symbol,
-            close: decimal(descriptor.close),
-            high: decimal(descriptor.high),
-            low: decimal(descriptor.low),
-            open: decimal(descriptor.open),
+            close: decimal(descriptor[0].close),
+            high: decimal(descriptor[0].high),
+            low: decimal(descriptor[0].low),
+            open: decimal(descriptor[0].open),
             quotationPrice: MidaQuotationPrice.BID,
-            startDate: date(descriptor.start),
-            endDate: date(descriptor.timestamp),
+            startDate: date(descriptor[0].start),
+            endDate: date(descriptor[0].timestamp),
             timeframe,
-            isClosed: descriptor.confirm === true,
-            volume: decimal(descriptor.volume),
+            isClosed: descriptor[0].confirm === true,
+            volume: decimal(descriptor[0].volume),
         });
 
         this.notifyListeners("period-update", { period, });

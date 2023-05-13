@@ -1,3 +1,6 @@
+### Features
+* Align market watcher documentation with the actual API [#112](https://github.com/Reiryoku-Technologies/Mida/pull/112)
+
 ### Bug fixes
 * Bybit | Fix a bug where period updates were returning periods with undefined data [#111](https://github.com/Reiryoku-Technologies/Mida/pull/111)
 
