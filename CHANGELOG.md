@@ -1,3 +1,6 @@
+### Features
+Binance | Add `S1` timeframe [#114](https://github.com/Reiryoku-Technologies/Mida/pull/114)
+
 2023.3.0 - 14-05-2023
 ===================
 ### Features
