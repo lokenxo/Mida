@@ -1,3 +1,5 @@
+2023.3.0 - 14-05-2023
+===================
 ### Features
 * Align market watcher documentation with the actual API [#112](https://github.com/Reiryoku-Technologies/Mida/pull/112)
 
