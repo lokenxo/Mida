@@ -45,6 +45,9 @@ export namespace BinanceSpotUtilities {
 
     export const toBinanceTimeframe = (timeframe: MidaTimeframe): string => {
         switch (timeframe) {
+            case MidaTimeframe.S1: {
+                return "1s";
+            }
             case MidaTimeframe.M1: {
                 return "1m";
             }
@@ -112,6 +115,9 @@ export namespace BinanceSpotUtilities {
 
     export const normalizeTimeframe = (timeframe: string): MidaTimeframe => {
         switch (timeframe) {
+            case "1s": {
+                return MidaTimeframe.S1;
+            }
             case "1m": {
                 return MidaTimeframe.M1;
             }
