@@ -656,3 +656,4 @@ may lead to money loss, for example a stop loss not being set.
 | Karsten Jakobsen | Collaborator           | [karstenjakobsen](https://github.com/karstenjakobsen) | /                         |
 | JoeGuest         | Collaborator           | [JoeGuest](https://github.com/JoeGuest)               | /                         |
 | Yannick Jemmely  | Collaborator           | [yannickjemmely](https://github.com/yannickjemmely)   | /                         |
+| Lorenzo Iovino   | Collaborator           | [lokenxo](https://github.com/lokenxo)                 | /                         |
